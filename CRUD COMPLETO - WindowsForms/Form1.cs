@@ -45,7 +45,16 @@ namespace CRUD_COMPLETO___WindowsForms
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            
+            if (acc.ActualizarAuto(Convert.ToInt32(txtMatricula.Text),txtMarca.Text,txtModelo.Text,Convert.ToInt32(txtAnio.Text),txtColor.Text))
+            {
+                MessageBox.Show("Actualizado con éxito");
+                dgDatos.DataSource = null;
+                dgDatos.DataSource = acc.MostrarAutos();
+            }
+            else
+            {
+                MessageBox.Show("Fallo al actualizar");
+            }
         }
     }
 }

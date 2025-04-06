@@ -58,19 +58,19 @@ namespace CRUD_COMPLETO___WindowsForms
         {
             try
             {
-                var objetoeliminar = listaauto.Find(x => x.Matricula == matricula);
-                objetoeliminar.Matricula = matricula;
-                //objetoeliminar.Marca=marca;
-                //objetoeliminar.Modelo=modelo;
-                //objetoeliminar.Anio=anio;
-                //objetoeliminar.Color=color;
-                
-
-                return true;
+                var objetoActualizar = listaauto.Find(x => x.Matricula == matricula);
+                if (objetoActualizar != null)
+                {
+                    objetoActualizar.Marca = marca;
+                    objetoActualizar.Modelo = modelo;
+                    objetoActualizar.Anio = anio;
+                    objetoActualizar.Color = color;
+                    return true;
+                }
+                return false;
             }
             catch (Exception)
             {
-
                 return false;
             }
         }
